@@ -12,7 +12,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
+      body: 
+      ListView.builder(
         itemCount: sampleMovies.length,
         itemBuilder: (context, index) {
           final movie = sampleMovies[index];
