@@ -16,8 +16,37 @@ class DetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Hero poster
-            Image.asset(movie.posterPath, height: 220, width: double.infinity, fit: BoxFit.cover),
+            Image.asset(movie.posterPath, height: 220, width: double.infinity, fit: BoxFit.contain),
             // Title, cast, synopsis…
+            Text(
+              movie.title,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const Text(
+              'Cast',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 4,
+              runSpacing: 0,
+              children: movie.cast.map((actor) {
+                return Chip(label: Text(actor));
+              }).toList(),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Synopsis',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              movie.synopsis,
+              style: const TextStyle(
+                fontSize: 16,
+                height: 1.5,
+              ),
+            ),
           ],
         ),
       ),
